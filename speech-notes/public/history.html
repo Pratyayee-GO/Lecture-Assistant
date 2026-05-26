@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Speech Notes – History</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <header>
+      <h1>History</h1>
+      <div class="actions">
+  <button onclick="window.location.href='index.html'">Live</button>
+  <button onclick="window.location.href='study-notes.html'">Study Notes</button>
+        <button id="refreshBtn">Refresh</button>
+        <button id="clearAllBtn" class="danger">Clear All</button>
+      </div>
+    </header>
+
+    <main>
+      <section>
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px;">
+          <h2>Text Notes</h2>
+          <button id="generateStudyNotesBtn" style="background:#16a34a; border-color:#16a34a;">
+            🤖 Generate Study Notes from Selected
+          </button>
+        </div>
+        <ul id="historyList" class="history-list"></ul>
+      </section>
+
+      <section>
+        <h2>Videos</h2>
+        <div class="actions">
+          <button id="refreshVideosBtn">Refresh</button>
+          <button id="clearAllVideosBtn" class="danger">Clear All Videos</button>
+        </div>
+        <ul id="videoList" class="history-list"></ul>
+      </section>
+    </main>
+
+    <footer>
+      <small>Delete items you no longer need. These are saved in a local SQLite DB on your machine.</small>
+    </footer>
+
+    <script src="/config.js"></script>
+    <script src="/history.js" defer></script>
+  </body>
+  </html>

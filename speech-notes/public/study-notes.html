@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Study Notes – AI Generated</title>
+    <link rel="stylesheet" href="/styles.css" />
+    <style>
+      .notes-grid { display: grid; gap: 12px; }
+      .note-card {
+        border: 1px solid #1f2937; border-radius: 8px; padding: 12px;
+        background: #0b1220; cursor: pointer; transition: border-color 0.2s;
+      }
+      .note-card:hover { border-color: var(--accent); }
+      .note-card.active { border-color: var(--accent); background: #111827; }
+      .note-viewer {
+        border: 1px solid #1f2937; border-radius: 12px; padding: 20px;
+        background: #0b1220; min-height: 400px; max-height: 600px; overflow-y: auto;
+      }
+      .note-viewer h1 { color: var(--accent); margin-top: 0; }
+      .note-viewer h2 { color: #60a5fa; margin-top: 24px; }
+      .note-viewer h3 { color: #9ca3af; }
+      .note-viewer code { background: #1f2937; padding: 2px 6px; border-radius: 4px; }
+      .note-viewer pre { background: #1f2937; padding: 12px; border-radius: 8px; overflow-x: auto; }
+      .note-viewer ul, .note-viewer ol { padding-left: 24px; }
+      .note-viewer li { margin: 6px 0; }
+      .chat-box {
+        border: 1px solid #1f2937; border-radius: 12px; padding: 16px;
+        background: #0b1220; margin-top: 16px;
+      }
+      .chat-messages { min-height: 200px; max-height: 300px; overflow-y: auto; margin-bottom: 12px; }
+      .chat-message { margin: 8px 0; padding: 8px 12px; border-radius: 8px; }
+      .chat-message.user { background: #1e3a5f; text-align: right; }
+      .chat-message.ai { background: #1f2937; }
+      .chat-input-row { display: flex; gap: 8px; }
+      .chat-input-row input { flex: 1; }
+      .empty-state { text-align: center; padding: 40px; color: var(--muted); }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>📚 Study Notes</h1>
+      <div class="actions">
+  <button onclick="window.location.href='index.html'">Live</button>
+  <button onclick="window.location.href='history.html'">History</button>
+        <button id="refreshBtn">Refresh</button>
+      </div>
+    </header>
+
+    <main>
+      <!-- List of study notes -->
+      <section>
+        <h2>Your AI-Generated Notes</h2>
+        <div id="notesList" class="notes-grid"></div>
+      </section>
+
+      <!-- Selected note viewer -->
+      <section id="viewerSection" style="display:none;">
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px;">
+          <h2 id="viewerTitle">Note</h2>
+          <button id="deleteNoteBtn" class="danger">Delete</button>
+        </div>
+        <div id="noteViewer" class="note-viewer"></div>
+
+        <!-- Chat with AI -->
+        <div class="chat-box">
+          <h3>💬 Ask questions about this note</h3>
+          <div id="chatMessages" class="chat-messages"></div>
+          <div class="chat-input-row">
+            <input id="chatInput" type="text" placeholder="Ask anything about this lecture..." />
+            <button id="sendChatBtn">Send</button>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <small>AI-powered study notes using Google Gemini. Ask questions to deepen your understanding.</small>
+    </footer>
+
+    <script src="/config.js"></script>
+    <script src="/study-notes.js" defer></script>
+  </body>
+</html>

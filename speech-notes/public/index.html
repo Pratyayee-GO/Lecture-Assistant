@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Speech Notes – Live</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Speech Notes</h1>
+      <div class="actions">
+        <button id="startBtn">Start Listening</button>
+        <button id="stopBtn" disabled>Stop</button>
+        <button id="historyBtn">Open History</button>
+        <span class="pill">Speech</span>
+      </div>
+
+      <div class="actions" style="margin-top:8px">
+        <button id="startVideoBtn">Start Video</button>
+        <button id="stopVideoBtn" disabled>Stop Video</button>
+        <span class="pill">Video</span>
+      </div>
+    </header>
+
+    <main>
+      <section>
+        <h2>Live transcript (English)</h2>
+        <div id="status" class="status">Idle</div>
+        <div id="live" class="transcript" aria-live="polite"></div>
+      </section>
+
+      <section>
+        <h2>Last saved</h2>
+        <ul id="savedList" class="saved-list"></ul>
+      </section>
+
+      <section>
+        <h2>Video status</h2>
+        <div id="videoStatus" class="status">Not recording</div>
+      </section>
+    </main>
+
+    <footer>
+      <small>
+        Uses your browser's Web Speech API (speech) and MediaRecorder (video). Best in Chrome. Video files are stored locally on this server; they are not shown here but can be accessed via the History tab.
+      </small>
+    </footer>
+
+    <script src="/config.js"></script>
+    <script src="/app.js" defer></script>
+  </body>
+  </html>
